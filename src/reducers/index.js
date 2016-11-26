@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
 			return [
 				...state,
 				{
-					id: String(state.reduce((maxId, product) => Math.max(product.id, maxId), -1) + 1),
+					id: state.reduce((maxId, product) => Math.max(product.id, maxId), -1) + 1,
 					name: action.name,
 					description: action.description,
 					price: action.price,

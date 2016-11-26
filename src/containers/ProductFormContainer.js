@@ -17,7 +17,7 @@ const getInventoryDetail = (products, id) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    inventory: getInventoryDetail(state, ownProps.params.productId)
+    inventory: getInventoryDetail(state, Number(ownProps.params.productId))
   }
 }
 
