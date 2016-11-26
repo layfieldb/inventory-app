@@ -1,0 +1,25 @@
+Assumptions:
+
+- Edit / Delete buttons for each product
+- Used a datepicker to make date input easier, common date format
+- Added some rudimentary form validation
+
+Choices:
+
+- react-bootstrap used for styling
+- localStorage used for persistence (in place of server API)
+
+
+Questions:
+
+Q - Is my solution scalable?
+A - Yes, although for a large number of products, performance would be a concern.  Adding pagination would help
+
+Q - Is my solution maintainable?
+A - Yes, adding new fields would be a trivial exercise.
+
+Q - Potential pain points?
+A - Using a route for the form could be seen as clunky, using a Modal would be a possible solution
+
+Q - Architecturally sound?
+A - Yes, Redux used for app state, state is not changed directly, containers are used to provide event dispatching, components are self contained and exhibit a top-down approach
