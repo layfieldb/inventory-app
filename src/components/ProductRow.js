@@ -14,7 +14,7 @@ export default class ProductRow extends Component {
         <td>{isTaxable ? 'Y' : 'N'}</td>
         <th>
         	<Button bsStyle="primary" onClick={() => onEdit(id) }>Edit</Button>
-        	<Button bsStyle="link" onClick={() => onDelete(id) }>Delete</Button>
+        	<Button bsStyle="link" onClick={() => {if(confirm('Are you sure you want to delete this product?')) {onDelete(id)}; }}>Delete</Button>
         </th>
     	</tr>
 		);
