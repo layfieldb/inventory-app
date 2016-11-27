@@ -1,9 +1,5 @@
-Inventory Management
+Inventory App
 ---------------------
-
-This application is a simple CRUD Application to manage Inventory details.
-
-Wrriten in ES6, React, Redux and Create React App as the boilerplate (https://github.com/facebookincubator/create-react-app)
 
 ## Available Scripts
 
