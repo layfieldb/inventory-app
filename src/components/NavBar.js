@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
+import { BUTTON_ADD_PRODUCT } from '../constants/Buttons'
 
 export default class NavBar extends Component {
 	render() {
@@ -9,7 +10,7 @@ export default class NavBar extends Component {
 		}
 		return (
       <div>
-        <Button style={style} className="pull-right" bsStyle="primary" onClick={() => onAddClick()}>Add Product</Button>
+        <Button style={style} className="pull-right" bsStyle="primary" onClick={() => onAddClick()}>{BUTTON_ADD_PRODUCT}</Button>
       </div>
 		)
 	}

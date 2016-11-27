@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Checkbox, Col, ControlLabel, Grid, Form, FormControl, FormGroup } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
+import { BUTTON_CANCEL, BUTTON_SAVE } from '../constants/Buttons'
 import 'react-datepicker/dist/react-datepicker.css'
 
 export default class ProductForm extends Component {
@@ -69,14 +70,18 @@ export default class ProductForm extends Component {
 
 	render() {
 		const style = {
-			paddingTop: '20px'
+			paddingBottom: '20px',
+			textAlign: 'center'
 		}
 		const { navigateToHome } = this.props
+		const formTitle = [this.state.id > -1 ? 'Edit' : 'Add', 'Product'].join(' ')
+
 		return (
 			<Grid>
-				<Form horizontal style={style} onSubmit={this.onSubmit}>
+				<h3 style={style}>{formTitle}</h3>
+				<Form horizontal onSubmit={this.onSubmit}>
 				  <FormGroup validationState={this.validateName()}>
-				    <Col componentClass={ControlLabel} sm={1}>Name</Col>
+				    <Col componentClass={ControlLabel} sm={2}>Name</Col>
 				    <Col sm={9}>
 				      <FormControl
 			        	type="text"
@@ -88,7 +93,7 @@ export default class ProductForm extends Component {
 				  </FormGroup>
 
 			    <FormGroup validationState={this.validateDescription()}>
-			      <Col componentClass={ControlLabel} sm={1}>Description</Col>
+			      <Col componentClass={ControlLabel} sm={2}>Description</Col>
 			      <Col sm={9}>
 			        <FormControl
 			        	type="text"
@@ -101,7 +106,7 @@ export default class ProductForm extends Component {
 			    </FormGroup>
 
 			    <FormGroup validationState={this.validatePrice()}>
-			      <Col componentClass={ControlLabel} sm={1}>Price</Col>
+			      <Col componentClass={ControlLabel} sm={2}>Price</Col>
 			      <Col sm={9}>
 			        <FormControl
 			        	type="text"
@@ -113,14 +118,14 @@ export default class ProductForm extends Component {
 			    </FormGroup>
 
 			    <FormGroup>
-			      <Col componentClass={ControlLabel} sm={1}>Date Available</Col>
+			      <Col componentClass={ControlLabel} sm={2}>Date Available</Col>
 			      <Col sm={9}>
 			      	<DatePicker selected={moment(this.state.dateAvailable)} onChange={this.handleDateChange} />
 			      </Col>
 			    </FormGroup>
 
 			    <FormGroup>
-			      <Col componentClass={ControlLabel} sm={1}>Taxable</Col>
+			      <Col componentClass={ControlLabel} sm={2}>Taxable</Col>
 			      <Col sm={9}>
 			        <Checkbox
 			        	name="isTaxable"
@@ -131,12 +136,8 @@ export default class ProductForm extends Component {
 
 					<FormGroup>
 			      <Col smOffset={2} sm={10}>
-			        <Button bsStyle="primary" ref={(Button) => { this.saveButton = Button }} bsSize="small" type="submit">
-			          Save
-			        </Button>
-			        <Button bsStyle="link" onClick={navigateToHome}>
-			          Cancel
-			        </Button>
+			        <Button bsStyle="primary" ref={(Button) => { this.saveButton = Button }} bsSize="small" type="submit">{BUTTON_SAVE}</Button>
+			        <Button bsStyle="link" onClick={navigateToHome}>{BUTTON_CANCEL}</Button>
 			      </Col>
 			    </FormGroup>
 			  </Form>
